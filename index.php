@@ -511,16 +511,23 @@ Troubleshooting problems with existing networks to determine the cause of malfun
 
         <div class="row no-gutters block-9">
           <div class="col-md-6 order-md-last d-flex">
-            <form action="#" id="form" method="post" name="form">
-				<input name="vname" placeholder="Your Name" type="text" value="">
-				<input name="vemail" placeholder="Your Email" type="text" value="">
-				<input name="sub" placeholder="Subject" type="text" value="">
-				<label>Your Suggestion/Feedback</label>
-				<textarea name="msg" placeholder="Type your text here..."></textarea>
-				<input id="send" name="submit" type="submit" value="Send Feedback">
-				</form>
-				<h3><?php include "mail.php"?></h3>
-          
+		  <form action="#" class="bg-light p-4 p-md-5 contact-form">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Email">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Subject">
+              </div>
+              <div class="form-group">
+                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+              </div>
+            </form>
           </div>
 
           <div class="col-md-6 d-flex">
