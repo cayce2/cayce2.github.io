@@ -1,20 +1,30 @@
+
 <?php
-         $to = "calebmumbi2@gmail.com";
-         $subject = "This is subject";
-         
-         $message = "<b>This is HTML message.</b>";
-         $message .= "<h1>This is headline.</h1>";
-         
-         $header = "From:abc@somedomain.com \r\n";
-         $header .= "Cc:afgh@somedomain.com \r\n";
-         $header .= "MIME-Version: 1.0\r\n";
-         $header .= "Content-type: text/html\r\n";
-         
-         $retval = mail ($to,$subject,$message,$header);
-         
-         if( $retval == true ) {
-            echo "Message sent successfully...";
-         }else {
-            echo "Message could not be sent...";
-         }
-      ?>
+if(isset($_POST["submit"])){
+// Checking For Blank Fields..
+if($_POST["vname"]==""||$_POST["vemail"]==""||$_POST["sub"]==""||$_POST["msg"]==""){
+echo "Fill All Fields..";
+}else{
+// Check if the "Sender's Email" input field is filled out
+$email=$_POST['vemail'];
+// Sanitize E-mail Address
+$email =filter_var($email, FILTER_SANITIZE_EMAIL);
+// Validate E-mail Address
+$email= filter_var($email, FILTER_VALIDATE_EMAIL);
+if (!$email){
+echo "Invalid Sender's Email";
+}
+else{
+$subject = $_POST['sub'];
+$message = $_POST['msg'];
+$headers = 'From:'. $email2 . "rn"; // Sender's Email
+$headers .= 'Cc:'. $email2 . "rn"; // Carbon copy to Sender
+// Message lines should not exceed 70 characters (PHP rule), so wrap it
+$message = wordwrap($message, 70);
+// Send Mail By PHP Mail Function
+mail("recievers_mail_id@xyz.com", $subject, $message, $headers);
+echo "Your mail has been sent successfuly ! Thank you for your feedback";
+}
+}
+}
+?>

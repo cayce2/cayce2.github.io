@@ -511,26 +511,15 @@ Troubleshooting problems with existing networks to determine the cause of malfun
 
         <div class="row no-gutters block-9">
           <div class="col-md-6 order-md-last d-flex">
-            <?php
-         $to = "xyz@somedomain.com";
-         $subject = "This is subject";
-         
-         $message = "<b>This is HTML message.</b>";
-         $message .= "<h1>This is headline.</h1>";
-         
-         $header = "From:abc@somedomain.com \r\n";
-         $header .= "Cc:afgh@somedomain.com \r\n";
-         $header .= "MIME-Version: 1.0\r\n";
-         $header .= "Content-type: text/html\r\n";
-         
-         $retval = mail ($to,$subject,$message,$header);
-         
-         if( $retval == true ) {
-            echo "Message sent successfully...";
-         }else {
-            echo "Message could not be sent...";
-         }
-      ?>
+            <form action="#" id="form" method="post" name="form">
+				<input name="vname" placeholder="Your Name" type="text" value="">
+				<input name="vemail" placeholder="Your Email" type="text" value="">
+				<input name="sub" placeholder="Subject" type="text" value="">
+				<label>Your Suggestion/Feedback</label>
+				<textarea name="msg" placeholder="Type your text here..."></textarea>
+				<input id="send" name="submit" type="submit" value="Send Feedback">
+				</form>
+				<h3><?php include "mail.php"?></h3>
           
           </div>
 
